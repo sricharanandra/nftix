@@ -1,50 +1,46 @@
-# React + TypeScript + Vite
+# nftix
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **nftix**, an innovative platform aiming to revolutionize event ticketing through the power of Non-Fungible Tokens (NFTs) and blockchain technology.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Traditional ticketing systems often face challenges such as fraud, scalping, and lack of transparency. NFTix seeks to address these issues by leveraging NFTs to create secure, verifiable, and unique digital tickets stored on a blockchain. This approach ensures authenticity, traceability, and offers enhanced features for both event organizers and attendees.
 
-## Expanding the ESLint configuration
+## Why NFTs as Tickets?
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Each ticket is minted as a unique NFT.
+- All transactions related to an NFT are publicly visible on the ledger, ensuring that the ticket is original and has not been resold
+- An NFT ticket cannot be counterfeited.
+- A simple smart contract can be used to check the validity of a ticket, enabling a simple and automated event entry experience.
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started 
+This project uses React, TypeScript, Tailwind CSS and MongoDB. Ensure that your device has the required software installed.  
+<br>
+To set up the development environment:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. **Clone the Repository**:
+   ```
+   git clone https://github.com/sricharanandra/nftix.git
+   cd nftix
+   ```
+2. **Install Dependencies**:
+    ```
+    npm install
+    ```
+3. **Start the development Environment**:
+   - To start the server
+     ```
+     node src/server.js
+     ```
+   - To start the client
+     ```
+     npm run dev
+     ```
+## Future Implementations
+- Auth for users and admins
+- Wallet connection for storing NFTs
+- Minting NFTs after an event is created
+- Smart contracts for transferring NFTs to wallets after purchase
+<br>  
+<h4> Note: This project is under active development. Features and implementations are subject to change. </h4>
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
