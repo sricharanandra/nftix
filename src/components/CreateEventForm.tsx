@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 interface EventFormData {
@@ -10,6 +11,8 @@ interface EventFormData {
 }
 
 export default function CreateEventForm(): any {
+
+    const navigate = useNavigate();
     const [formData, setFormData] = useState<EventFormData>({
         name: '',
         venue: '',
@@ -39,60 +42,64 @@ export default function CreateEventForm(): any {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4 border rounded-lg shadow-lg">
-            <h2 className="text-2xl font-bold mb-4">Create Event</h2>
+        <>
+            <button onClick={() => navigate("/")} className='p-4 bg-blue-500'> Home </button >
+            <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4 border rounded-lg shadow-lg">
+                <h2 className="text-2xl font-bold mb-4">Create Event</h2>
 
-            <label className="block mb-2">Event Name</label>
-            <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                required
-            />
+                <label className="block mb-2">Event Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full p-2 border rounded"
+                    required
+                />
 
-            <label className="block mb-2 mt-4">Event Venue</label>
-            <input
-                type="text"
-                name="venue"
-                value={formData.venue}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                required
-            />
+                <label className="block mb-2 mt-4">Event Venue</label>
+                <input
+                    type="text"
+                    name="venue"
+                    value={formData.venue}
+                    onChange={handleChange}
+                    className="w-full p-2 border rounded"
+                    required
+                />
 
-            <label className="block mb-2 mt-4">Capacity</label>
-            <input
-                type="number"
-                name="capacity"
-                value={formData.capacity}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                required
-            />
+                <label className="block mb-2 mt-4">Capacity</label>
+                <input
+                    type="number"
+                    name="capacity"
+                    value={formData.capacity}
+                    onChange={handleChange}
+                    className="w-full p-2 border rounded"
+                    required
+                />
 
-            <label className="block mb-2 mt-4">Date</label>
-            <input
-                type="date"
-                name="date"
-                value={formData.date}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                required
-            />
+                <label className="block mb-2 mt-4">Date</label>
+                <input
+                    type="date"
+                    name="date"
+                    value={formData.date}
+                    onChange={handleChange}
+                    className="w-full p-2 border rounded"
+                    required
+                />
 
-            <label className="block mb-2 mt-4">Time</label>
-            <input
-                type="time"
-                name="time"
-                value={formData.time}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                required
-            />
+                <label className="block mb-2 mt-4">Time</label>
+                <input
+                    type="time"
+                    name="time"
+                    value={formData.time}
+                    onChange={handleChange}
+                    className="w-full p-2 border rounded"
+                    required
+                />
 
-            <button type="submit" className="w-full mt-6 bg-blue-500 text-white p-2 rounded">Create Event</button>
-        </form>
+                <button type="submit" className="w-full mt-6 bg-blue-500 text-white p-2 rounded">Create Event</button>
+            </form>
+
+        </>
     );
 }
